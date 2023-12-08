@@ -14,4 +14,4 @@ crontab /etc/cron.d/crontab
 cron
 
 ## run apache
-apache2-foreground
+apachectl -D FOREGROUND

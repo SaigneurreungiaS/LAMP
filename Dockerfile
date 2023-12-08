@@ -73,4 +73,5 @@ RUN apt-get clean && rm -rf /tmp/* /var/tmp/* && rm -rf /var/lib/apt/lists/*
 
 ## Running
 COPY foreground.sh /usr/local/bin/
-CMD ["foreground.sh"]
+#CMD ["foreground.sh"]
+CMD apachectl -D FOREGROUND

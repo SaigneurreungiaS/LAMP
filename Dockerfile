@@ -11,7 +11,7 @@ ENV PHP_MAX_EXECUTION_TIME=30
 ## Extend PHP
 RUN apt-get update \
  ## Bases packages
- && apt install -y apache2 php libapache2-mod-php php-curl php-gd php-intl php-json php-mbstring php-xml php-zip
+ && apt install -y apache2 php libapache2-mod-php php-curl php-gd php-intl php-json php-mbstring php-xml php-zip \
  ## Zip extension
  && apt-get install -y --no-install-recommends zlib1g-dev \
  && docker-php-ext-install zip \

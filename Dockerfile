@@ -10,7 +10,8 @@ ENV PHP_MAX_EXECUTION_TIME=30
 
 
 ##Set timezone
-RUN UBUNTU_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+ENV TZ=FR \
+    DEBIAN_FRONTEND=noninteractive
 
 ## Extend PHP
 RUN apt-get update \

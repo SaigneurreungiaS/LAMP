@@ -18,8 +18,8 @@ RUN apt-get update \
  ## Bases packages
  && apt install -y apache2 php libapache2-mod-php php-curl php-gd php-intl php-json php-mbstring php-xml php-zip \
  ## Zip extension
- && apt-get install -y --no-install-recommends zlib1g-dev \
- && docker-php-ext-install zip \
+ #&& apt-get install -y --no-install-recommends zlib1g-dev \
+ #&& docker-php-ext-install zip \
  ## Imap extension
  #&& apt-get install -y --no-install-recommends libc-client-dev libkrb5-dev \
  #&& docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
@@ -28,9 +28,9 @@ RUN apt-get update \
  #&& apt-get install -y --no-install-recommends libxslt-dev \
  #&& docker-php-ext-install xsl \
  ## Intl extension
- && apt-get install -y --no-install-recommends zlib1g-dev libicu-dev g++ \
- && docker-php-ext-configure intl \
- && docker-php-ext-install intl \
+ #&& apt-get install -y --no-install-recommends zlib1g-dev libicu-dev g++ \
+ #&& docker-php-ext-configure intl \
+ #&& docker-php-ext-install intl \
  ## Other extensions
  #&& docker-php-ext-install mysqli pdo pdo_mysql gettext \
  ## Clean-up

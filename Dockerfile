@@ -25,8 +25,8 @@ RUN apt-get update \
  #&& docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
  #&& docker-php-ext-install imap \
  ## Xsl extension
- && apt-get install -y --no-install-recommends libxslt-dev \
- && docker-php-ext-install xsl \
+ #&& apt-get install -y --no-install-recommends libxslt-dev \
+ #&& docker-php-ext-install xsl \
  ## Intl extension
  && apt-get install -y --no-install-recommends zlib1g-dev libicu-dev g++ \
  && docker-php-ext-configure intl \

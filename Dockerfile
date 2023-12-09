@@ -35,7 +35,7 @@ RUN apt-get update \
  #&& docker-php-ext-install mysqli pdo pdo_mysql gettext \
  ## Clean-up
  && rm -rf /var/lib/apt/lists/*
-COPY php.ini /usr/local/etc/php/php.ini
+COPY php.ini /etc/php/8.1/apache2/php.ini
 
 ## Sendmail
 ##RUN apt-get update && apt-get install -y --no-install-recommends ssmtp \

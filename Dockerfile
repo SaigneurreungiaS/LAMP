@@ -42,10 +42,9 @@ COPY php.ini /etc/php/8.1/apache2/php.ini
 ## && echo "FromLineOverride=YES" >> /etc/ssmtp/ssmtp.conf && rm -rf /var/lib/apt/lists/*
 
 ## Crontab
-RUN apt-get update \
- && apt-get install -y --no-install-recommends cron rsyslog \
- && rm -rf /etc/cron.* /var/lib/apt/lists/*
-COPY crontab /etc/cron.d/crontab
+RUN echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > crontab.tmp \
+ && crontab crontab.tmp \
+ && rm crontab.tmp
 
 ## Apache
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data \

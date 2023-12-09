@@ -47,6 +47,9 @@ RUN echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > c
  && crontab crontab.tmp \
  && rm crontab.tmp
 
+## Add git
+RUN apt update && apt install -y git
+
 ## Apache
 ##RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf

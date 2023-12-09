@@ -47,8 +47,8 @@ RUN echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > c
  && rm crontab.tmp
 
 ## Apache
-RUN usermod -u 1000 www-data && groupmod -g 1000 www-data \
- && echo "ServerName localhost" >> /etc/apache2/apache2.conf \
+##RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
  && mkdir /etc/apache2/ssl && mkdir /log && chown www-data:www-data /log
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 #COPY ssl/localhost.crt /etc/apache2/ssl/localhost.crt

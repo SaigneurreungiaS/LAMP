@@ -42,6 +42,7 @@ COPY php.ini /etc/php/8.1/apache2/php.ini
 ## && echo "FromLineOverride=YES" >> /etc/ssmtp/ssmtp.conf && rm -rf /var/lib/apt/lists/*
 
 ## Crontab
+RUN apt update && apt install -y cron
 RUN echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > crontab.tmp \
  && crontab crontab.tmp \
  && rm crontab.tmp

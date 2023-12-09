@@ -9,9 +9,9 @@ touch /log/php_error.log \
 chown www-data:www-data -R /log/*.log
 
 ## run cron
-chmod a+x /etc/cron.d/crontab
-crontab /etc/cron.d/crontab
-cron
+#chmod a+x /etc/cron.d/crontab
+#crontab /etc/cron.d/crontab
+#cron
 
 ## run apache
 apachectl -D FOREGROUND

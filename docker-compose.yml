@@ -1,0 +1,26 @@
+version: '3'
+
+networks:
+  wan:
+    external: true
+
+services:
+  wondercms:
+    image: wondercms:latest
+    restart: unless-stopped
+    volumes:
+      - /srv/docker/volumes/wondercms/html/:/var/www/html/
+      #Cette ligne pour exposer les log à fail2ban
+      #- /srv/docker/volumes/fail2ban/log/vaultwarden/vaultwarden.log:/data/vaultwarden.log
+    container_name: wondercms
+# Les lignes commentées sont destinées à l'utilisation avec traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wondercms.rule=Host(`jumel.xyz`)"
+      - "traefik.http.routers.wondercms.entrypoints=web_secure"
+      - "traefik.http.routers.wondercms.tls=true"
+      - "traefik.http.routers.wondercms.tls.certresolver=certbot"
+      - "traefik.http.services.wondercms.loadbalancer.server.port=80"
+    networks:
+      - wan
+

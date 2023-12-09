@@ -11,12 +11,12 @@ services:
     volumes:
       - /srv/docker/volumes/wondercms/html/:/var/www/html/
       #Cette ligne pour exposer les log à fail2ban
-      #- /srv/docker/volumes/fail2ban/log/vaultwarden/vaultwarden.log:/data/vaultwarden.log
+      #- /srv/docker/volumes/fail2ban/log/wondercms/wondercms.log:/log/vaultwarden.log
     container_name: wondercms
-# Les lignes commentées sont destinées à l'utilisation avec traefik
+# This lines are made to work with traefik, if you don't you must expose port 80
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wondercms.rule=Host(`jumel.xyz`)"
+      - "traefik.http.routers.wondercms.rule=Host(`mydomain.com`)"
       - "traefik.http.routers.wondercms.entrypoints=web_secure"
       - "traefik.http.routers.wondercms.tls=true"
       - "traefik.http.routers.wondercms.tls.certresolver=certbot"

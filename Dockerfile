@@ -54,7 +54,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 #COPY ssl/localhost.crt /etc/apache2/ssl/localhost.crt
 #COPY ssl/localhost.pem /etc/apache2/ssl/localhost.pem
-RUN a2enmod rewrite && systemctl restart apache2
+RUN a2enmod rewrite && service apache2 restart
 # RUN a2enmod ssl
 
 ##################################################################################################

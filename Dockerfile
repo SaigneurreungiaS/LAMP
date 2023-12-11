@@ -82,4 +82,5 @@ RUN apt-get clean && rm -rf /tmp/* /var/tmp/* && rm -rf /var/lib/apt/lists/*
 
 ## Running
 COPY foreground.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/foreground.sh
 CMD ["foreground.sh"]

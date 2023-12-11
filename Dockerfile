@@ -56,7 +56,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 ##Clone Wondercms
 RUN git clone https://github.com/WonderCMS/wondercms.git 
 ##Create log folder and change owner of files
-RUN mkdir /log && chown www-data:www-data /log && chown www-data:www-data /var/www/html*
+RUN mkdir /log && chown www-data:www-data /log && chown -R www-data:www-data /var/www/html/*
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 #COPY ssl/localhost.crt /etc/apache2/ssl/localhost.crt
 #COPY ssl/localhost.pem /etc/apache2/ssl/localhost.pem

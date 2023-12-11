@@ -6,21 +6,12 @@ networks:
 
 services:
   wondercms:
-    image: wondercms:latest
+    image: saigneur/wondercms:latest
     restart: unless-stopped
     volumes:
-      - /srv/docker/volumes/wondercms/html/:/var/www/html/
-      #Cette ligne pour exposer les log à fail2ban
-      #- /srv/docker/volumes/fail2ban/log/wondercms/wondercms.log:/log/vaultwarden.log
+      - /path/to/data/:/var/www/html/
     container_name: wondercms
-# This lines are made to work with traefik, if you don't you must expose port 80
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.wondercms.rule=Host(`mydomain.com`)"
-      - "traefik.http.routers.wondercms.entrypoints=web_secure"
-      - "traefik.http.routers.wondercms.tls=true"
-      - "traefik.http.routers.wondercms.tls.certresolver=certbot"
-      - "traefik.http.services.wondercms.loadbalancer.server.port=80"
+    ports:
+      - 8888:80
     networks:
       - wan
-
